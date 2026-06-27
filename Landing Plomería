@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plomeros Expertos | Llegamos en menos de 1 hora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        },
+                        accent: {
+                            500: '#f97316', // Naranja para urgencia/conversión
+                            600: '#ea580c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Animaciones para prueba social */
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-soft { animation: pulse-soft 2s infinite; }
+        
+        /* Estilos base para el video/antes-después */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 0.75rem; }
+        .video-container iframe, .video-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <!-- BARRA SUPERIOR GEOLOCALIZADA -->
+    <div class="bg-brand-900 text-white text-sm font-semibold py-2 px-4 text-center">
+        <span class="animate-pulse-soft text-accent-500 mr-2"><i class="fas fa-map-marker-alt"></i></span>
+        <span id="geo-text">Detectando tu ubicación...</span>
+    </div>
+
+    <!-- NAVEGACIÓN SIMPLE -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-wrench text-brand-600 text-2xl"></i>
+                <span class="font-bold text-xl tracking-tight text-gray-900">Plomeros<span class="text-brand-600">24/7</span></span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex flex-col text-right">
+                    <span class="text-xs text-gray-500 font-bold uppercase">Emergencias 24h</span>
+                    <a href="tel:5551234567" class="text-lg font-bold text-gray-900 hover:text-brand-600">555-123-4567</a>
+                </div>
+                <a href="#cotizar" class="bg-brand-600 hover:bg-brand-900 text-white px-5 py-2 rounded-lg font-bold transition-colors">
+                    Pedir Presupuesto
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Above the fold) -->
+    <section class="bg-white pt-8 pb-12 lg:pt-16 lg:pb-20">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Contenido Izquierdo: Dolor y Prueba Social -->
+            <div>
+                <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <div class="flex items-center text-yellow-400 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="text-sm font-bold text-gray-700">4.8 de 50,000+ reseñas</span>
+                    <span class="text-gray-300">|</span>
+                    <span class="text-sm font-bold text-green-600"><i class="fas fa-shield-check mr-1"></i>+12,000 plomeros verificados</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-gray-900">
+                    ¿Fuga de agua o baño tapado? <br>
+                    <span class="text-brand-600">Plomero en tu puerta en menos de 1 hora.</span>
+                </h1>
+                
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Solucionamos problemas reales, rápido y bien hecho. Presupuesto claro antes de empezar, garantía por escrito y 
+                    <strong class="text-gray-900 font-bold border-b-2 border-accent-500">no pagas hasta que el problema esté resuelto.</strong>
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="flex items-center gap-3 bg-brand-50 p-3 rounded-lg">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-600 shadow-sm">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <span class="text-sm font-bold leading-tight">Sin pagos por adelantado</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-brand-50 p-3 rounded-lg">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-600 shadow-sm">
+                            <i class="fas fa-stopwatch"></i>
+                        </div>
+                        <span class="text-sm font-bold leading-tight">Atención inmediata 24/7</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido Derecho: Formulario Corto -->
+            <div id="cotizar" class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-6 md:p-8 border border-gray-100 relative">
+                <!-- Badge superior -->
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide shadow-md">
+                    Cotización Gratis
+                </div>
+                
+                <h3 class="text-2xl font-bold text-center mb-2 mt-2">¿Qué necesitas resolver hoy?</h3>
+                <p class="text-center text-gray-500 text-sm mb-6">Recibe 3 cotizaciones en menos de 5 minutos</p>
+                
+                <form onsubmit="event.preventDefault(); alert('Formulario de demostración enviado');" class="space-y-4">
+                    <div>
+                        <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-gray-700 bg-white" required>
+                            <option value="" disabled selected>Selecciona tu problema...</option>
+                            <option value="urgencia">🚨 Emergencia: Fuga de agua / Inundación</option>
+                            <option value="destape">🚽 Baño o cañería tapada</option>
+                            <option value="boiler">🔥 Reparación de Boiler / Calentador</option>
+                            <option value="instalacion">🔧 Instalación / Remodelación programada</option>
+                        </select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="Tu Nombre" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
+                        <input type="tel" placeholder="WhatsApp / Celular" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-map-marker-alt absolute left-4 top-3.5 text-gray-400"></i>
+                        <input type="text" placeholder="Tu Código Postal o Colonia" class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
+                        Ver Plomeros Disponibles <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-1 mt-2">
+                        <i class="fas fa-lock"></i> Tus datos están seguros y no hay compromiso.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARJETAS TIPO MASTERCARD (ESPECIALIZACIÓN DE INTENCIÓN) -->
+    <section class="bg-white py-12 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 uppercase tracking-wide text-gray-900 border-l-4 border-accent-500 pl-3">
+                Servicios Especializados
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                
+                <!-- Tarjeta 1: Urgencias -->
+                <a href="#urgencias" target="_blank" class="group block relative overflow-hidden transition-all hover:shadow-lg bg-gray-50 pb-4">
+                    <div class="aspect-square bg-gray-900 overflow-hidden relative">
+                        <!-- Imagen representativa -->
+                        <img src="https://images.unsplash.com/photo-1607472586893-edb57cb641ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fuga de agua" class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="pt-6 px-4">
+                        <p class="text-xs font-bold uppercase tracking-wider text-accent-600 mb-2">URGENCIAS 24/7</p>
+                        <h3 class="text-xl font-semibold flex items-center justify-between text-gray-900">
+                            Fugas y Destapes 
+                            <i class="fas fa-arrow-right text-brand-600 transform group-hover:translate-x-2 transition-transform"></i>
+                        </h3>
+                    </div>
+                </a>
+
+                <!-- Tarjeta 2: Instalaciones -->
+                <a href="#instalaciones" target="_blank" class="group block relative overflow-hidden transition-all hover:shadow-lg bg-gray-50 pb-4">
+                    <div class="aspect-square bg-gray-900 overflow-hidden relative">
+                        <!-- Imagen representativa -->
+                        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Instalaciones de plomería" class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="pt-6 px-4">
+                        <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">PROYECTOS</p>
+                        <h3 class="text-xl font-semibold flex items-center justify-between text-gray-900">
+                            Instalación y Remodelación
+                            <i class="fas fa-arrow-right text-brand-600 transform group-hover:translate-x-2 transition-transform"></i>
+                        </h3>
+                    </div>
+                </a>
+
+                <!-- Tarjeta 3: Mantenimiento -->
+                <a href="#mantenimiento" target="_blank" class="group block relative overflow-hidden transition-all hover:shadow-lg bg-gray-50 pb-4">
+                    <div class="aspect-square bg-gray-900 overflow-hidden relative">
+                        <!-- Imagen representativa -->
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mantenimiento preventivo" class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="pt-6 px-4">
+                        <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">PREVENCIÓN</p>
+                        <h3 class="text-xl font-semibold flex items-center justify-between text-gray-900">
+                            Mantenimiento de Boilers
+                            <i class="fas fa-arrow-right text-brand-600 transform group-hover:translate-x-2 transition-transform"></i>
+                        </h3>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSPARENCIA DE PRECIOS -->
+    <section class="bg-gray-900 text-white py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Hablemos claro de dinero. Cero sorpresas.</h2>
+            <p class="text-gray-400 mb-10">Los precios varían por la complejidad del problema, pero aquí tienes una guía real de lo que otros clientes pagan en tu zona.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Barato -->
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">Visita / Reparación Menor</p>
+                    <p class="text-3xl font-bold text-white mb-2">$350 <span class="text-sm font-normal text-gray-500">MXN</span></p>
+                    <p class="text-sm text-gray-400">Ej: Cambio de un empaque, diagnóstico básico.</p>
+                </div>
+                <!-- Promedio -->
+                <div class="bg-brand-900 p-6 rounded-xl border border-brand-500 transform md:-translate-y-2 relative shadow-2xl">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        Lo Más Común
+                    </div>
+                    <p class="text-brand-200 text-sm font-semibold uppercase tracking-wider mb-2">Destapes / Fugas Promedio</p>
+                    <p class="text-4xl font-bold text-white mb-2">$700 <span class="text-sm font-normal text-brand-300">MXN</span></p>
+                    <p class="text-sm text-brand-100">Ej: Destapar fregadero, reparar tubería visible rota.</p>
+                </div>
+                <!-- Caro -->
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <p class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">Proyectos Mayores</p>
+                    <p class="text-3xl font-bold text-white mb-2">$6,000+ <span class="text-sm font-normal text-gray-500">MXN</span></p>
+                    <p class="text-sm text-gray-400">Ej: Cambio completo de tubería de baño, romper muro.</p>
+                </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-6">*Los profesionales te darán el precio exacto de tu problema ANTES de iniciar el trabajo. Tú decides.</p>
+        </div>
+    </section>
+
+    <!-- PRUEBA SOCIAL FUERTE Y COMPARADOR -->
+    <section class="py-16 bg-brand-50">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">No envíes a cualquier desconocido a tu casa</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Así se ven los perfiles de los profesionales con los que te conectamos. Transparencia total, elige al mejor.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Perfil Mockup -->
+                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                    <div class="bg-gray-50 p-6 flex flex-col md:flex-row gap-6 items-start border-b border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="Foto del plomero" class="w-24 h-24 rounded-full border-4 border-white shadow-md object-cover">
+                        <div class="flex-1 text-left">
+                            <div class="flex flex-wrap items-center justify-between mb-1 gap-2">
+                                <h3 class="text-xl font-bold text-gray-900">Roberto Sánchez</h3>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded flex items-center gap-1">
+                                    <i class="fas fa-crown"></i> Profesional Top
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-2xl font-bold text-gray-900">9.8</span>
+                                <div class="text-yellow-400 text-sm">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-sm text-gray-500 underline">(214 reseñas)</span>
+                            </div>
+                            <p class="text-sm text-gray-600 flex items-center gap-2">
+                                <i class="fas fa-map-marker-alt text-brand-600"></i> A 2km de tu ubicación (Llega en ~15 min)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="flex items-center gap-2 text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-green-500"></i> Identidad validada
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-700">
+                                <i class="fas fa-check-circle text-green-500"></i> Celular validado
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-700">
+                                <i class="fas fa-bolt text-yellow-500"></i> Responde en < 5 min
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-700">
+                                <i class="fas fa-briefcase text-brand-600"></i> 340 veces contratado
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4 italic text-gray-600 text-sm border-l-4 border-brand-500">
+                            "Llegó en 20 minutos un domingo en la noche. Arregló la fuga del boiler rápido, cobró lo justo y dejó limpio. Super recomendado."
+                            <div class="mt-2 text-xs font-bold not-italic text-gray-800">- Familia Gómez, hace 2 días</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparador Explicación -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Tú tienes el control: Compara 3 opciones en minutos</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-100 text-brand-600 font-bold flex items-center justify-center shrink-0 mt-1">1</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Describe tu problema</h4>
+                                <p class="text-sm text-gray-600 mt-1">Llenas el formulario en 30 segundos (arriba).</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-100 text-brand-600 font-bold flex items-center justify-center shrink-0 mt-1">2</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Recibe perfiles y cotizaciones</h4>
+                                <p class="text-sm text-gray-600 mt-1">Te contactan hasta 3 plomeros cercanos y disponibles de inmediato.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-100 text-brand-600 font-bold flex items-center justify-center shrink-0 mt-1">3</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Elige y contrata</h4>
+                                <p class="text-sm text-gray-600 mt-1">Ves sus perfiles, sus reseñas y comparas precio. Tú decides con quién trabajar, sin compromiso.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#cotizar" class="inline-block mt-8 text-brand-600 font-bold hover:underline">
+                        Quiero recibir cotizaciones ahora <i class="fas fa-arrow-right text-sm ml-1"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO / EVIDENCIA (Antes y Después) -->
+    <section class="bg-white py-16 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-gray-900">Resultados reales, no fotos de stock</h2>
+            <p class="text-gray-600 mb-8">Nuestros profesionales resuelven desde lo más sencillo hasta desastres totales.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Simulación de Video/Antes -->
+                <div class="bg-gray-100 rounded-xl overflow-hidden shadow-md">
+                    <div class="bg-red-500 text-white text-xs font-bold py-1 uppercase">Antes (Fuga severa)</div>
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1542013936693-884638332954?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tubería rota" class="opacity-80">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/80 rounded-full flex items-center justify-center cursor-pointer hover:bg-white transition-colors">
+                                <i class="fas fa-play text-gray-800 text-xl ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Simulación de Resultado/Después -->
+                <div class="bg-gray-100 rounded-xl overflow-hidden shadow-md">
+                    <div class="bg-green-500 text-white text-xs font-bold py-1 uppercase">Después (Reparado)</div>
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tubería reparada nueva">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SIMPLE -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="mb-4">© 2026 Plomeros24/7. Conectando a los mejores profesionales de confianza con clientes en apuros.</p>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="hover:text-white transition-colors">Términos de servicio</a>
+                <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT GEOLOCALIZACIÓN MOCKUP -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const geoText = document.getElementById("geo-text");
+            
+            // Simulamos la detección de ubicación con un timeout para dar efecto real
+            setTimeout(() => {
+                // En un caso real usarías la API de geolocalización o IP del usuario. 
+                // Aquí usamos el dato que me diste: Naucalpan de Juárez
+                const zona = "Naucalpan de Juárez";
+                const plomerosDisponibles = Math.floor(Math.random() * 3) + 2; // Random 2 a 4
+                
+                geoText.innerHTML = `📍 ¡<strong>${plomerosDisponibles} plomeros</strong> disponibles ahora mismo cerca de <strong>${zona}</strong>!`;
+                
+                // Quitamos la animación de pulse una vez cargado
+                geoText.parentElement.classList.remove("animate-pulse-soft");
+                geoText.parentElement.classList.add("bg-brand-600"); 
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
