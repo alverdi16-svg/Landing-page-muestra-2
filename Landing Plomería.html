@@ -116,35 +116,57 @@
                     Cotización Gratis
                 </div>
                 
-                <h3 class="text-2xl font-bold text-center mb-2 mt-2">¿Qué necesitas resolver hoy?</h3>
-                <p class="text-center text-gray-500 text-sm mb-6">Recibe 3 cotizaciones en menos de 5 minutos</p>
-                
-                <form onsubmit="event.preventDefault(); alert('Formulario de demostración enviado');" class="space-y-4">
-                    <div>
-                        <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-gray-700 bg-white" required>
-                            <option value="" disabled selected>Selecciona tu problema...</option>
-                            <option value="urgencia">🚨 Emergencia: Fuga de agua / Inundación</option>
-                            <option value="destape">🚽 Baño o cañería tapada</option>
-                            <option value="boiler">🔥 Reparación de Boiler / Calentador</option>
-                            <option value="instalacion">🔧 Instalación / Remodelación programada</option>
-                        </select>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <input type="text" placeholder="Tu Nombre" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
-                        <input type="tel" placeholder="WhatsApp / Celular" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
-                    </div>
-                    <div class="relative">
-                        <i class="fas fa-map-marker-alt absolute left-4 top-3.5 text-gray-400"></i>
-                        <input type="text" placeholder="Tu Código Postal o Colonia" class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
-                    </div>
+                <!-- Vista formulario -->
+                <div id="form-view">
+                    <h3 class="text-2xl font-bold text-center mb-2 mt-2">¿Qué necesitas resolver hoy?</h3>
+                    <p class="text-center text-gray-500 text-sm mb-6">Recibe 3 cotizaciones en menos de 5 minutos</p>
                     
-                    <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
-                        Ver Plomeros Disponibles <i class="fas fa-arrow-right"></i>
+                    <form id="main-form" onsubmit="mostrarConfirmacion(event)" class="space-y-4">
+                        <div>
+                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-gray-700 bg-white" required>
+                                <option value="" disabled selected>Selecciona tu problema...</option>
+                                <option value="urgencia">🚨 Emergencia: Fuga de agua / Inundación</option>
+                                <option value="destape">🚽 Baño o cañería tapada</option>
+                                <option value="boiler">🔥 Reparación de Boiler / Calentador</option>
+                                <option value="instalacion">🔧 Instalación / Remodelación programada</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input id="nombre-input" type="text" placeholder="Tu Nombre" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
+                            <input type="tel" placeholder="WhatsApp / Celular" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
+                        </div>
+                        <div class="relative">
+                            <i class="fas fa-map-marker-alt absolute left-4 top-3.5 text-gray-400"></i>
+                            <input type="text" placeholder="Tu Código Postal o Colonia" class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
+                            Ver Plomeros Disponibles <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-1 mt-2">
+                            <i class="fas fa-lock"></i> Tus datos están seguros y no hay compromiso.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Vista de confirmación (oculta por defecto) -->
+                <div id="form-success" class="hidden text-center py-6">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-check-circle text-green-500 text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">¡Solicitud recibida, <span id="nombre-confirmacion"></span>!</h3>
+                    <p class="text-gray-600 mb-2">Estamos conectándote con los plomeros disponibles en tu zona.</p>
+                    <p class="text-brand-600 font-bold mb-6">📱 Te contactarán en menos de <span class="text-accent-600">5 minutos</span>.</p>
+                    <div class="bg-brand-50 rounded-xl p-4 text-sm text-gray-600 mb-6">
+                        <p class="font-semibold text-gray-800 mb-1">Mientras esperas:</p>
+                        <p>✓ Ten a la mano tu número de teléfono</p>
+                        <p>✓ Prepara una descripción breve del problema</p>
+                        <p>✓ El plomero te enviará su ETA en tiempo real</p>
+                    </div>
+                    <button onclick="reiniciarFormulario()" class="text-brand-600 text-sm font-bold hover:underline flex items-center gap-1 mx-auto">
+                        <i class="fas fa-redo text-xs"></i> Enviar otra solicitud
                     </button>
-                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-1 mt-2">
-                        <i class="fas fa-lock"></i> Tus datos están seguros y no hay compromiso.
-                    </p>
-                </form>
+                </div>
             </div>
         </div>
     </section>
@@ -159,10 +181,10 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                 
                 <!-- Tarjeta 1: Urgencias -->
-                <a href="#urgencias" target="_blank" class="group block relative overflow-hidden transition-all hover:shadow-lg bg-gray-50 pb-4">
+                <a href="servicio-fugas-destapes.html" target="_blank" class="group block relative overflow-hidden transition-all hover:shadow-lg bg-gray-50 pb-4">
                     <div class="aspect-square bg-gray-900 overflow-hidden relative">
-                        <!-- Imagen representativa -->
-                        <img src="https://images.unsplash.com/photo-1607472586893-edb57cb641ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fuga de agua" class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        <!-- Imagen del usuario: grifo con gota -->
+                        <img src="fugas-destapes.png" alt="Fuga de agua" class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
                     <div class="pt-6 px-4">
@@ -175,7 +197,7 @@
                 </a>
 
                 <!-- Tarjeta 2: Instalaciones -->
-                <a href="#instalaciones" target="_blank" class="group block relative overflow-hidden transition-all hover:shadow-lg bg-gray-50 pb-4">
+                <a href="servicio-instalacion-remodelacion.html" target="_blank" class="group block relative overflow-hidden transition-all hover:shadow-lg bg-gray-50 pb-4">
                     <div class="aspect-square bg-gray-900 overflow-hidden relative">
                         <!-- Imagen representativa -->
                         <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Instalaciones de plomería" class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-500">
@@ -191,7 +213,7 @@
                 </a>
 
                 <!-- Tarjeta 3: Mantenimiento -->
-                <a href="#mantenimiento" target="_blank" class="group block relative overflow-hidden transition-all hover:shadow-lg bg-gray-50 pb-4">
+                <a href="servicio-mantenimiento-boilers.html" target="_blank" class="group block relative overflow-hidden transition-all hover:shadow-lg bg-gray-50 pb-4">
                     <div class="aspect-square bg-gray-900 overflow-hidden relative">
                         <!-- Imagen representativa -->
                         <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mantenimiento preventivo" class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-500">
@@ -396,6 +418,49 @@
                 geoText.parentElement.classList.add("bg-brand-600"); 
             }, 1500);
         });
+
+        function mostrarConfirmacion(event) {
+            event.preventDefault();
+            const nombre = document.getElementById("nombre-input").value.trim();
+            document.getElementById("nombre-confirmacion").textContent = nombre || "amigo";
+            
+            const formView = document.getElementById("form-view");
+            const formSuccess = document.getElementById("form-success");
+
+            // Fade out form
+            formView.style.transition = "opacity 0.3s ease";
+            formView.style.opacity = "0";
+            setTimeout(() => {
+                formView.classList.add("hidden");
+                formSuccess.classList.remove("hidden");
+                formSuccess.style.opacity = "0";
+                formSuccess.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+                formSuccess.style.transform = "translateY(10px)";
+                // Fade in confirmation
+                requestAnimationFrame(() => {
+                    formSuccess.style.opacity = "1";
+                    formSuccess.style.transform = "translateY(0)";
+                });
+            }, 300);
+        }
+
+        function reiniciarFormulario() {
+            const formView = document.getElementById("form-view");
+            const formSuccess = document.getElementById("form-success");
+            document.getElementById("main-form").reset();
+
+            formSuccess.style.opacity = "0";
+            setTimeout(() => {
+                formSuccess.classList.add("hidden");
+                formView.classList.remove("hidden");
+                formView.style.opacity = "0";
+                requestAnimationFrame(() => {
+                    formView.style.transition = "opacity 0.4s ease";
+                    formView.style.opacity = "1";
+                });
+            }, 300);
+        }
     </script>
 </body>
 </html>
+

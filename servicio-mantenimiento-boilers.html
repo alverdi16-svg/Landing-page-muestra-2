@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento de Boilers | Plomeros24/7</title>
+    <meta name="description" content="Mantenimiento preventivo y reparación de boilers y calentadores. Ahorra hasta 30% en gas. Técnicos certificados. Presupuesto gratis.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: {
+                brand: { 50:'#eff6ff',100:'#dbeafe',500:'#3b82f6',600:'#2563eb',900:'#1e3a8a' },
+                accent: { 500:'#f97316',600:'#ea580c' }
+            }}}
+        }
+    </script>
+    <style>
+        @keyframes pulse-soft { 0%,100%{opacity:1} 50%{opacity:0.7} }
+        .animate-pulse-soft { animation: pulse-soft 2s infinite; }
+        @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+        .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+        .delay-100 { animation-delay:0.1s; opacity:0; }
+        .delay-200 { animation-delay:0.2s; opacity:0; }
+        .delay-300 { animation-delay:0.3s; opacity:0; }
+        .hero-overlay { background: linear-gradient(135deg,rgba(15,10,5,0.88) 0%,rgba(120,40,0,0.55) 100%); }
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll 40s linear infinite;
+        }
+        .marquee-wrapper { overflow: hidden; }
+        /* Proceso - linea detras de los numeros */
+        .proceso-linea { z-index: 0 !important; }
+        .proceso-step { position: relative; z-index: 1; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+<div class="bg-brand-900 text-white text-sm font-semibold py-2 px-4 text-center">
+    <span class="animate-pulse-soft text-accent-500 mr-2"><i class="fas fa-fire"></i></span>
+    <span>PREVENCIÓN — Evita fallas costosas antes de que ocurran</span>
+</div>
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <a href="Landing Plomería.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <i class="fas fa-arrow-left text-brand-600 text-sm"></i>
+            <i class="fas fa-wrench text-brand-600 text-2xl ml-2"></i>
+            <span class="font-bold text-xl tracking-tight text-gray-900">Plomeros<span class="text-brand-600">24/7</span></span>
+        </a>
+        <div class="flex items-center gap-4">
+            <div class="hidden md:flex flex-col text-right">
+                <span class="text-xs text-gray-500 font-bold uppercase">Técnicos certificados</span>
+                <a href="tel:5551234567" class="text-lg font-bold text-gray-900 hover:text-brand-600">555-123-4567</a>
+            </div>
+            <a href="#cotizar" class="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2 rounded-lg font-bold transition-colors">Agendar Revisión</a>
+        </div>
+    </div>
+</header>
+
+<section class="relative min-h-[520px] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Mantenimiento de boiler profesional" class="w-full h-full object-cover object-center">
+        <div class="hero-overlay absolute inset-0"></div>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-4 py-20 text-white">
+        <div class="fade-in-up">
+            <span class="inline-flex items-center gap-2 bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider mb-6">
+                <i class="fas fa-fire"></i> PREVENCIÓN
+            </span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 fade-in-up delay-100">
+            Mantenimiento<br><span class="text-orange-300">de Boilers</span>
+        </h1>
+        <p class="text-lg md:text-xl text-orange-100 max-w-2xl mb-8 leading-relaxed fade-in-up delay-200">
+            Un boiler sin mantenimiento gasta hasta <strong class="text-white">30% más de gas</strong> y puede fallar en el peor momento. Nuestros técnicos certificados lo revisan, limpian y ajustan para que dure mucho más.
+        </p>
+        <div class="flex flex-wrap gap-4 fade-in-up delay-300">
+            <a href="#cotizar" class="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2">
+                <i class="fas fa-calendar-check"></i> Agendar Revisión Gratis
+            </a>
+            <a href="tel:5551234567" class="bg-white/10 border border-white/40 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all backdrop-blur-sm">
+                <i class="fas fa-phone-alt mr-2"></i>555-123-4567
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="bg-gray-900 text-white py-6">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div><div class="text-3xl font-extrabold text-orange-300 mb-1">30%</div><div class="text-xs text-orange-200 uppercase tracking-wide">Ahorro en gas</div></div>
+            <div><div class="text-3xl font-extrabold text-orange-300 mb-1">+8K</div><div class="text-xs text-orange-200 uppercase tracking-wide">Boilers revisados</div></div>
+            <div><div class="text-3xl font-extrabold text-orange-300 mb-1">24h</div><div class="text-xs text-orange-200 uppercase tracking-wide">Cita en el día</div></div>
+            <div><div class="text-3xl font-extrabold text-orange-300 mb-1">100%</div><div class="text-xs text-orange-200 uppercase tracking-wide">Técnicos certificados</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-2 text-gray-900 text-center">Servicios para tu boiler o calentador</h2>
+        <p class="text-gray-500 text-center mb-12">Compatibles con todas las marcas: Calorex, Cinsa, Hesa, Bosch, Rheem y más</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="group bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 rounded-2xl p-6 transition-all hover:shadow-md">
+                <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-500 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-tools"></i></div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Mantenimiento Preventivo Anual</h3>
+                <p class="text-sm text-gray-600">Limpieza completa de serpentín y quemadores, revisión de piloto, ajuste de termostato y prueba de eficiencia.</p>
+                <div class="mt-4 text-sm font-bold text-accent-600">Desde  MXN <i class="fas fa-arrow-right text-xs ml-1"></i></div>
+            </div>
+            <div class="group bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 rounded-2xl p-6 transition-all hover:shadow-md">
+                <div class="w-14 h-14 rounded-2xl bg-red-100 text-red-500 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-fire-extinguisher"></i></div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Reparación de Boiler Sin Agua Caliente</h3>
+                <p class="text-sm text-gray-600">Diagnóstico y reparación de termopares, válvulas de gas, resistencias eléctricas y pilotos defectuosos.</p>
+                <div class="mt-4 text-sm font-bold text-accent-600">Desde  MXN <i class="fas fa-arrow-right text-xs ml-1"></i></div>
+            </div>
+            <div class="group bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 rounded-2xl p-6 transition-all hover:shadow-md">
+                <div class="w-14 h-14 rounded-2xl bg-yellow-100 text-yellow-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-exchange-alt"></i></div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Instalación de Boiler Nuevo</h3>
+                <p class="text-sm text-gray-600">Te ayudamos a elegir el boiler correcto según tu consumo y lo instalamos con todas las normas de seguridad.</p>
+                <div class="mt-4 text-sm font-bold text-accent-600">Desde ,200 MXN <i class="fas fa-arrow-right text-xs ml-1"></i></div>
+            </div>
+            <div class="group bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 rounded-2xl p-6 transition-all hover:shadow-md">
+                <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-500 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-tint-slash"></i></div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Limpieza de Sarro y Cal</h3>
+                <p class="text-sm text-gray-600">El sarro acumulado reduce la eficiencia hasta un 40%. Limpieza química profunda para recuperar el rendimiento original.</p>
+                <div class="mt-4 text-sm font-bold text-accent-600">Desde  MXN <i class="fas fa-arrow-right text-xs ml-1"></i></div>
+            </div>
+            <div class="group bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 rounded-2xl p-6 transition-all hover:shadow-md">
+                <div class="w-14 h-14 rounded-2xl bg-green-100 text-green-500 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Revisión de Seguridad de Gas</h3>
+                <p class="text-sm text-gray-600">Detección de fugas en conexiones de gas, verificación de ventilación y revisión de válvulas de seguridad.</p>
+                <div class="mt-4 text-sm font-bold text-accent-600">Desde  MXN <i class="fas fa-arrow-right text-xs ml-1"></i></div>
+            </div>
+            <div class="group bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 rounded-2xl p-6 transition-all hover:shadow-md">
+                <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-500 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-solar-panel"></i></div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Calentadores Solares</h3>
+                <p class="text-sm text-gray-600">Mantenimiento, instalación y reparación de calentadores solares. Ahorra hasta el 70% en gas a largo plazo.</p>
+                <div class="mt-4 text-sm font-bold text-accent-600">Cotización personalizada <i class="fas fa-arrow-right text-xs ml-1"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-gray-900 text-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-4">¿Tu boiler tiene alguno de estos síntomas?</h2>
+                <p class="text-gray-400 mb-8">Si reconoces alguno, es momento de llamarnos antes de que se convierta en una avería mayor.</p>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3 text-gray-200"><i class="fas fa-exclamation-circle text-accent-500 text-lg"></i> El agua tarda mucho en calentar</li>
+                    <li class="flex items-center gap-3 text-gray-200"><i class="fas fa-exclamation-circle text-accent-500 text-lg"></i> El piloto se apaga solo</li>
+                    <li class="flex items-center gap-3 text-gray-200"><i class="fas fa-exclamation-circle text-accent-500 text-lg"></i> El agua sale con olor o color extraño</li>
+                    <li class="flex items-center gap-3 text-gray-200"><i class="fas fa-exclamation-circle text-accent-500 text-lg"></i> Escuchas ruidos extraños al encenderse</li>
+                    <li class="flex items-center gap-3 text-gray-200"><i class="fas fa-exclamation-circle text-accent-500 text-lg"></i> Tu recibo de gas aumentó sin razón</li>
+                    <li class="flex items-center gap-3 text-gray-200"><i class="fas fa-exclamation-circle text-accent-500 text-lg"></i> El boiler tiene más de 5 años sin revisión</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                <div class="text-center mb-6">
+                    <div class="w-20 h-20 rounded-full bg-accent-500/20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-fire text-accent-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Revisión preventiva anual</h3>
+                    <div class="text-4xl font-extrabold text-white mt-2"> <span class="text-sm font-normal text-gray-400">MXN</span></div>
+                    <p class="text-gray-400 text-sm mt-2">Todo incluido, sin sorpresas</p>
+                </div>
+                <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Limpieza completa de quemadores</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Revisión y ajuste de termostato</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Prueba de encendido y piloto</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Revisión de conexiones de gas</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Reporte de estado del equipo</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Garantía de servicio 3 meses</li>
+                </ul>
+                <a href="#cotizar" class="block w-full bg-accent-500 hover:bg-accent-600 text-white text-center font-bold py-3 rounded-xl transition-colors">
+                    Agendar Ahora <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- RESEÑAS CARRUSEL -->
+    <section class="bg-brand-50 py-16">
+        <div class="max-w-6xl mx-auto px-4 mb-10">
+            <h2 class="text-3xl font-bold text-gray-900 text-center">Clientes satisfechos</h2>
+        </div>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <!-- SET 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Mi boiler tenía 7 años sin mantenimiento. Lo limpiaron a fondo y ahora calienta el doble de rápido. El técnico fue muy profesional."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">PH</div><div><div class="font-bold text-sm text-gray-900">Patricia Herrera</div><div class="text-xs text-gray-400">hace 2 semanas · Interlomas</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Se me apagaba el piloto todos los días. Lo arreglaron en una visita, cambiaron el termopar y desde entonces funciona perfecto."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">RV</div><div><div class="font-bold text-sm text-gray-900">Roberto Vega</div><div class="text-xs text-gray-400">hace 1 mes · Naucalpan</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Noté que mi recibo de gas subió mucho. Detectaron sarro acumulado, lo limpiaron y bajé casi 25% en el siguiente recibo."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">SM</div><div><div class="font-bold text-sm text-gray-900">Sofía Martínez</div><div class="text-xs text-gray-400">hace 6 semanas · Satélite</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Instalaron un boiler nuevo en menos de 2 horas. Me asesoraron sobre qué capacidad necesitaba y el precio fue muy competitivo."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">EJ</div><div><div class="font-bold text-sm text-gray-900">Eduardo Jiménez</div><div class="text-xs text-gray-400">hace 3 semanas · Polanco</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"El boiler hacía un ruido horrible al encenderse. El técnico identificó el problema en minutos: sarro en el serpentín. Quedó perfecto."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">CL</div><div><div class="font-bold text-sm text-gray-900">Carmen López</div><div class="text-xs text-gray-400">hace 2 meses · CDMX</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Revisión completa de gas y boiler. Encontraron una pequeña fuga en la conexión que yo ni había notado. Me salvaron de un problema grave."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">AM</div><div><div class="font-bold text-sm text-gray-900">Arturo Mendoza</div><div class="text-xs text-gray-400">hace 1 mes · Tlalnepantla</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Contraté el mantenimiento anual para mis 3 boilers de oficina. Todo en un día, sin interrumpir el trabajo. Muy eficientes."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">DT</div><div><div class="font-bold text-sm text-gray-900">Daniela Torres</div><div class="text-xs text-gray-400">hace 2 semanas · Huixquilucan</div></div></div></div>
+                <!-- SET 2 (duplicado para loop) -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Mi boiler tenía 7 años sin mantenimiento. Lo limpiaron a fondo y ahora calienta el doble de rápido. El técnico fue muy profesional."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">PH</div><div><div class="font-bold text-sm text-gray-900">Patricia Herrera</div><div class="text-xs text-gray-400">hace 2 semanas · Interlomas</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Se me apagaba el piloto todos los días. Lo arreglaron en una visita, cambiaron el termopar y desde entonces funciona perfecto."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">RV</div><div><div class="font-bold text-sm text-gray-900">Roberto Vega</div><div class="text-xs text-gray-400">hace 1 mes · Naucalpan</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Noté que mi recibo de gas subió mucho. Detectaron sarro acumulado, lo limpiaron y bajé casi 25% en el siguiente recibo."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">SM</div><div><div class="font-bold text-sm text-gray-900">Sofía Martínez</div><div class="text-xs text-gray-400">hace 6 semanas · Satélite</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Instalaron un boiler nuevo en menos de 2 horas. Me asesoraron sobre qué capacidad necesitaba y el precio fue muy competitivo."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">EJ</div><div><div class="font-bold text-sm text-gray-900">Eduardo Jiménez</div><div class="text-xs text-gray-400">hace 3 semanas · Polanco</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"El boiler hacía un ruido horrible al encenderse. El técnico identificó el problema en minutos: sarro en el serpentín. Quedó perfecto."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">CL</div><div><div class="font-bold text-sm text-gray-900">Carmen López</div><div class="text-xs text-gray-400">hace 2 meses · CDMX</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Revisión completa de gas y boiler. Encontraron una pequeña fuga en la conexión que yo ni había notado. Me salvaron de un problema grave."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">AM</div><div><div class="font-bold text-sm text-gray-900">Arturo Mendoza</div><div class="text-xs text-gray-400">hace 1 mes · Tlalnepantla</div></div></div></div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mx-3 w-80 flex-shrink-0"><div class="flex text-yellow-400 text-sm mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-700 italic mb-4 text-sm">"Contraté el mantenimiento anual para mis 3 boilers de oficina. Todo en un día, sin interrumpir el trabajo. Muy eficientes."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600 flex-shrink-0">DT</div><div><div class="font-bold text-sm text-gray-900">Daniela Torres</div><div class="text-xs text-gray-400">hace 2 semanas · Huixquilucan</div></div></div></div>
+            </div>
+        </div>
+    </section>
+
+<section id="cotizar" class="bg-gray-900 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+        <span class="inline-block bg-accent-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6">Agendar Revisión</span>
+        <h2 class="text-3xl font-bold text-white mb-4">Dale mantenimiento a tu boiler hoy</h2>
+        <p class="text-gray-400 mb-8">Un técnico certificado va a tu domicilio, revisa el equipo y te entrega un reporte completo.</p>
+        <div class="bg-white rounded-2xl p-8 shadow-2xl text-left">
+            <div id="form-view">
+            <form onsubmit="mostrarConfirmacion(event)" class="space-y-4">
+                <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none text-gray-700 bg-white" required>
+                    <option value="" disabled selected>¿Qué necesitas?</option>
+                    <option>🔧 Mantenimiento preventivo anual</option>
+                    <option>🔥 Reparación (sin agua caliente)</option>
+                    <option>🆕 Instalación de boiler nuevo</option>
+                    <option>🧹 Limpieza de sarro</option>
+                    <option>🛡️ Revisión de seguridad de gas</option>
+                </select>
+                <div class="grid grid-cols-2 gap-4">
+                    <input id="nombre-input" type="text" placeholder="Tu Nombre" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
+                    <input type="tel" placeholder="WhatsApp / Celular" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
+                </div>
+                <div class="relative">
+                    <i class="fas fa-map-marker-alt absolute left-4 top-3.5 text-gray-400"></i>
+                    <input type="text" placeholder="Tu Código Postal o Colonia" class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none" required>
+                </div>
+                <div class="relative">
+                    <i class="fas fa-calendar absolute left-4 top-3.5 text-gray-400"></i>
+                    <input type="text" placeholder="¿Cuándo prefieres la visita? (ej. mañana por la tarde)" class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 outline-none">
+                </div>
+                <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white text-lg font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 flex justify-center items-center gap-2">
+                    Agendar Revisión <i class="fas fa-arrow-right"></i>
+                </button>
+                <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-1"><i class="fas fa-lock"></i> Sin compromiso. Precio fijo antes de empezar.</p>
+            </form>
+            </div>
+
+            <!-- Vista de confirmacion -->
+            <div id="form-success" class="hidden text-center py-6">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                    <i class="fas fa-check-circle text-green-500 text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">¡Solicitud recibida, <span id="nombre-confirmacion"></span>!</h3>
+                <p class="text-gray-600 mb-2">Estamos conectándote con los especialistas disponibles en tu zona.</p>
+                <p class="text-brand-600 font-bold mb-6">📱 Te contactarán en menos de <span class="text-accent-600">5 minutos</span>.</p>
+                <div class="bg-brand-50 rounded-xl p-4 text-sm text-gray-600 mb-6">
+                    <p class="font-semibold text-gray-800 mb-1">Mientras esperas:</p>
+                    <p>✓ Ten a la mano tu número de teléfono</p>
+                    <p>✓ Prepara una descripción breve del problema</p>
+                    <p>✓ El especialista te enviará su ETA en tiempo real</p>
+                </div>
+                <button onclick="reiniciarFormulario()" class="text-brand-600 text-sm font-bold hover:underline flex items-center gap-1 mx-auto">
+                    <i class="fas fa-redo text-xs"></i> Enviar otra solicitud
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-4">
+        <p class="mb-4">© 2026 Plomeros24/7. Conectando a los mejores profesionales de confianza con clientes en apuros.</p>
+        <div class="flex justify-center gap-4">
+            <a href="#" class="hover:text-white transition-colors">Términos de servicio</a>
+            <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+        </div>
+    </div>
+</footer>
+    
+<script>
+        function mostrarConfirmacion(event) {
+            event.preventDefault();
+            const nombre = document.getElementById("nombre-input").value.trim();
+            document.getElementById("nombre-confirmacion").textContent = nombre || "amigo";
+            const formView = document.getElementById("form-view");
+            const formSuccess = document.getElementById("form-success");
+            formView.style.transition = "opacity 0.3s ease";
+            formView.style.opacity = "0";
+            setTimeout(function() {
+                formView.classList.add("hidden");
+                formSuccess.classList.remove("hidden");
+                formSuccess.style.opacity = "0";
+                formSuccess.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+                formSuccess.style.transform = "translateY(10px)";
+                requestAnimationFrame(function() {
+                    formSuccess.style.opacity = "1";
+                    formSuccess.style.transform = "translateY(0)";
+                });
+            }, 300);
+        }
+        function reiniciarFormulario() {
+            const formView = document.getElementById("form-view");
+            const formSuccess = document.getElementById("form-success");
+            document.getElementById("form-view").querySelector("form").reset();
+            formSuccess.style.opacity = "0";
+            setTimeout(function() {
+                formSuccess.classList.add("hidden");
+                formView.classList.remove("hidden");
+                formView.style.opacity = "0";
+                requestAnimationFrame(function() {
+                    formView.style.transition = "opacity 0.4s ease";
+                    formView.style.opacity = "1";
+                });
+            }, 300);
+        }
+    </script>
+</body>
+</html>
